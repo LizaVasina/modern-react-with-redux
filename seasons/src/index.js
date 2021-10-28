@@ -1,40 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    state = {
+        latitude: null,
+        errorMessage: '',
+    };
 
-        this.state = {
-            latitude: null,
-            longitude: null,
-            errorMessage: '',
-        };
-
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
-            position => {
-                this.setState({ latitude: position.coords.latitude });
-                this.setState({ longitude: position.coords.longitude });
-            },
+            position => this.setState({ latitude: position.coords.latitude }),
             err => this.setState({ errorMessage: err.message })
         );
     }
 
-    render() {
-        if (this.state.errorMessage && ! this.state.latitude && ! this.state.longitude) {
+    renderContent() {
+        if (this.state.errorMessage && ! this.state.latitude) {
             return <div>Error: {this.state.errorMessage}</div>
         }
 
-        if (! this.state.errorMessage && this.state.latitude && this.state.longitude) {
+        if (! this.state.errorMessage && this.state.latitude) {
             return (
                 <>
-                    <div>Широта: {this.state.latitude}</div>
-                    <div>Долгота: {this.state.longitude}</div>
+                  <SeasonDisplay lat={this.state.latitude} />  
                 </>
             );
         }
 
-        return <div>Loading</div> 
-            
+        return <Spinner message="Пожалуйста, разрешите доступ к геолокации" /> 
+    }
+
+    render() {
+        return <div>{this.renderContent()}</div>
     }
 };
 
