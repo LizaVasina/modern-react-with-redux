@@ -1,0 +1,36 @@
+{
+  "streams": [
+    {
+      "title": "Stream",
+      "description": "Stream description",
+      "id": 1
+    },
+    {
+      "title": "Stream",
+      "description": "Stream description",
+      "id": 2
+    },
+    {
+      "title": "Streamsss",
+      "description": "Stream description",
+      "id": 3
+    },
+    {
+      "title": "New stream",
+      "description": "That`s my new stream",
+      "userId": "115538675388882866439",
+      "id": 4
+    },
+    {
+      "title": "Test programmatic navigation",
+      "description": "Test test testzzz",
+      "userId": "115538675388882866439",
+      "id": 5
+    },
+    {
+      "title": "Streamzzzzz",
+      "description": "Stream",
+      "id": 6
+    }
+  ]
+}
