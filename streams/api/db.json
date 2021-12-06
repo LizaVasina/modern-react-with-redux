@@ -25,6 +25,12 @@
       "title": "Streamzzzzz",
       "description": "Stream",
       "id": 6
+    },
+    {
+      "title": "New stream",
+      "description": "New stream description",
+      "userId": "115538675388882866439",
+      "id": 7
     }
   ]
 }
