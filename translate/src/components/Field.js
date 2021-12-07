@@ -5,12 +5,11 @@ class Field extends React.PureComponent {
     static contextType = LanguageContext;
 
     render() {
+        const text = this.context.language === 'english' ? 'Name' : 'Имя'
         return (
             <div className="ui field">
                 <label>
-                    <LanguageContext.Consumer>
-                        {(value) => value === 'english' ? 'Name' : 'Имя'}
-                    </LanguageContext.Consumer>
+                    {text}
                 </label>
                 <input />
             </div>
